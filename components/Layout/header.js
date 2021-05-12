@@ -14,7 +14,7 @@ const Header = () => {
       <AppsRounded
         size='large'
       />
-      <a href='https://github.com'>
+      <a href='https://github.com/zurgl/dot-scan'>
         <Github size='large' />
       </a>
     </Box>
