@@ -23,7 +23,6 @@ yarn build
 Then you can run the production server
 
 ```bash
-yarn install
 yarn start
 ```
 

@@ -1,8 +1,4 @@
-import {
-  DataTable,
-  Text
-} from 'grommet'
-
+import { DataTable, Text } from 'grommet'
 
 const TransactionsViewer = ({ transactions }) => {
   const data = transactions.map(tr => {
@@ -53,6 +49,5 @@ const TransactionsViewer = ({ transactions }) => {
     />
   )
 }
-
 
 export default TransactionsViewer
