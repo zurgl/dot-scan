@@ -1,26 +1,36 @@
 A quick project to understand figment enriched API for polkadot
 
------------------------------------------
+---
 
-To run locally
+At first install required dependencies
 
 ```bash
 yarn install
-yarn run dev
+```
+
+To run the developpement server
+
+```bash
+yarn dev
 ```
 
 To build
+
 ```bash
-yarn install
-yarn run dev
+yarn build
 ```
 
+Then you can run the production server
 
+```bash
+yarn install
+yarn start
+```
 
 To rebuild db
 
 ```
 touch .env
 echo "API_KEY=<API-KEY>" > .env
-node data/run.js
+node data/run
 ```

@@ -1,10 +1,27 @@
+import { Database, Cluster, Cubes } from 'grommet-icons'
 import { Box, Button } from 'grommet'
-import {
-  Database,
-  Cluster,
-  Cubes,
-} from 'grommet-icons'
 import Link from 'next/link'
+
+const entriesProps = [
+  { key: 'index', path: '/', icon: <Database size='large' /> },
+  { key: 'graph2D', path: '/graph2D', icon: <Cluster size='large' />},
+  { key: 'graph3D', path: '/graph3D', icon: <Cubes size='large' />},
+]
+
+function Entry({ path, icon }) {
+  return (
+    <Button pag="medium" href="#" hoverIndicator>
+      <Link href={path}>
+        <Box
+          pad={{ horizontal: 'medium', vertical: 'small' }}
+          align="center"
+        >
+        {icon}
+        </Box>
+      </Link>
+    </Button>
+  )
+}
 
 function SideBar() {
   return (
@@ -13,43 +30,15 @@ function SideBar() {
       background="brand"
       width="xsmall"
       gap="large"
-      animation={[
-        { type: 'fadeIn', duration: 300 },
-        { type: 'slideRight', size: 'xlarge', duration: 150 },
-      ]}
     >
-      <Button key={"database"} pag="medium" href="#" hoverIndicator>
-          <Link href={"/"}>
-          <Box
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            align="center"
-          >
-            <Database size="large" />
-          </Box>
-      </Link>
-      </Button>
-      <Button key={"graph2D"} href="#" hoverIndicator>
-          <Link href={"graph2D"}>
-          <Box
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            align="center"
-          >
-            <Cluster size="large"/>
-          </Box>
-      </Link>
-      </Button>
-      <Button key={"graph3D"} href="#" hoverIndicator>
-          <Link href={"graph3D"}>
-          <Box
-            pad={{ horizontal: 'medium', vertical: 'small' }}
-            align="center"
-          >
-            <Cubes size="large" />
-          </Box>
-      </Link>
-      </Button>
+      {entriesProps.map(({key, path, icon}) =>
+        <Entry
+          key={key}
+          path={path}
+          icon={icon}
+        />)}
     </Box>
-  ) 
+    ) 
 }
 
 export default SideBar

@@ -1,6 +1,7 @@
-import { Graph2D } from '../components/Graph'
+import { Graph2D } from '../components/Graphs'
+import graphBuilder from "../lib/graphBuilder"
+import Layout from '../components/Layout'
 import db from '../data/db.json'
-import graphBuilder from "../lib/graphBuilder";
 
 export async function getStaticProps() {
   const graph = graphBuilder(db)
@@ -11,7 +12,6 @@ export async function getStaticProps() {
   }
 }
 
-import Layout from '../components/Layout'
 export default function Graph({ graph }) {
   return (
     <Layout>

@@ -1,5 +1,5 @@
+import { AppsRounded, Github } from 'grommet-icons'
 import { Box } from 'grommet'
-import { AppsRounded, Github } from 'grommet-icons';
 
 const Header = () => {
   return (
@@ -11,9 +11,7 @@ const Header = () => {
       pad={{ horizontal: 'medium', vertical: 'small' }}
       background="black"
     >
-      <AppsRounded
-        size='large'
-      />
+      <AppsRounded size='large' />
       <a href='https://github.com/zurgl/dot-scan'>
         <Github size='large' />
       </a>

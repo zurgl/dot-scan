@@ -5,7 +5,6 @@ const ForceGraph2D = dynamic(
   { ssr: false }
 )
 
-
 const Graph2D = ({ graph, height, width }) => {
   return (
     <ForceGraph2D

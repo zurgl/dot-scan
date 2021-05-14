@@ -1,9 +1,5 @@
-import React, {
-  useState,
-  useRef,
-  useEffect
-} from 'react'
-import { Box } from 'grommet';
+import React, { useState, useRef, useEffect } from 'react'
+import { Box } from 'grommet'
 
 const Main = ({ children }) => {
   const [height, setHeight] = useState(0)

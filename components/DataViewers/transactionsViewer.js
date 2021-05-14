@@ -4,8 +4,8 @@ import {
 } from 'grommet'
 
 
-const TransactionsViewer = ({ transferts }) => {
-  const data = transferts.map(tr => {
+const TransactionsViewer = ({ transactions }) => {
+  const data = transactions.map(tr => {
     return {
       hash: tr[0],
       ...tr[1] 

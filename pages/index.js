@@ -1,22 +1,21 @@
-import transfertsMap from '../data/db.json'
+import db from '../data/db.json'
 import Layout from '../components/Layout'
-import TransactionsViewer from '../components/DataViewers/transactionsViewer'
+import { TransactionsViewer } from '../components/DataViewers'
 
 
 export async function getStaticProps() {
-  const transferts = transfertsMap
   return {
     props: {
-      transferts,
+      db,
     },
   }
 }
 
 
-export default function Page({ transferts }) {
+export default function Page({ db }) {
   return (
     <Layout>
-      <TransactionsViewer transferts={transferts}/>
+      <TransactionsViewer transactions={db}/>
     </Layout> 
   );
 };

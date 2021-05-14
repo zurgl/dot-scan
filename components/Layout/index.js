@@ -1,13 +1,8 @@
-import {
-  Grommet,
-  Box,
-  Grid
-} from 'grommet';
-import { grommet } from 'grommet/themes';
-import Header from './header'
+import { Grommet, Box, Grid } from 'grommet'
+import { grommet } from 'grommet/themes'
 import SideBar from './sideBar'
+import Header from './header'
 import Main from './main'
-
 
 const Layout = ({ children }) => {
   return (
