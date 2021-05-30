@@ -15,18 +15,25 @@ const makeDB = async () => {
   const addr0 = '12VpUFS23SePmovN9PXjXn6yRprUCXUG5YVbfYJoTY9MsDNw'
   const onlyReward = (entry) => entry[1].amount === 11000000000
   
-  const rewardTransaction = (await fetchData(addr0, true, []))
-    .flatMap(toEntry)
-    .filter(onlyReward)
+  const transactions = (await fetchData(addr0, true))
+   .flatMap(toEntry)
+   .filter(onlyReward)
   
-  const db = new Map(rewardTransaction)
+  const db = new Map(transactions)
 
-  for (let transfer of rewardTransaction) {
-    (await fetchData(transfer[1].recipient))
+  const MAX_CONCURRENT = 5;
+  for (let n = 0; n < transactions.length; n += MAX_CONCURRENT)
+    (
+      await Promise.allSettled(
+        transactions
+          .slice(n, n + MAX_CONCURRENT)
+          .map(tr => fetchData(tr[1].recipient))
+      )
+    )
+      .flatMap(response => response.value)
       .flatMap(toEntry)
       .forEach(entry => db.set(...entry))
-  }
-
+  
   saveDB(Array.from(db.entries()))
 }
 
