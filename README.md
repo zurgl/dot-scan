@@ -2,7 +2,7 @@ A quick project to understand figment enriched API for polkadot
 
 ---
 
-At first install required dependencies
+At first install required dependencies.
 
 ```bash
 yarn install
